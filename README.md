@@ -1,1 +1,2 @@
-# New-year-fireworks
+# firework
+firework using javascript

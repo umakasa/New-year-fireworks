@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy New Year</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Vibur:400" rel="stylesheet" type="text/css">
+    <script src="fireworks.js" defer></script>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="audio/fireworks.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <h2 id="banner">Happy New Year</h2>
+    <span id="timer">Loading...</span>
+    
+
+    <script>
+        var countDownDate = new Date("January 1, 2026 00:00:00").getTime();
+
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // Check if countdown is finished
+            if (distance < 0) {
+                clearInterval(x); // Stop the timer
+                document.getElementById("timer").innerHTML = "Happy New Year!";
+
+                // Redirect to fire.html
+                setTimeout(function() {
+                    window.location.href = "";
+                }, 2000); // Redirect after 2 seconds
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
